@@ -1,10 +1,12 @@
 language: elixir
+elixir:
+  - 1.0.5
 otp_release:
-- 18.0
+  - 18.0
 addons:
   postgresql: '9.4'
 before_script:
-- mix do ecto.create, ecto.migrate
+  - mix do ecto.create, ecto.migrate
 deploy:
   provider: heroku
   app: square-square-backend
