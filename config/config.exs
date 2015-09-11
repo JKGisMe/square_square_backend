@@ -13,7 +13,7 @@ config :plug, :mimes, %{
 config :square_square_backend, SquareSquareBackend.Endpoint,
   url: [host: "localhost"],
   root: Path.dirname(__DIR__),
-  secret_key_base: "7u3fukn6axzYN0EmIfnQwKDCKO9lBqnPWKmZCfBu2CXJ9k8sgYbdIsZQ9zZOTbPM",
+  secret_key_base: System.get_env("SECRET_KEY_BASE"),
   render_errors: [accepts: ~w(html json)],
   pubsub: [name: SquareSquareBackend.PubSub,
            adapter: Phoenix.PubSub.PG2]
