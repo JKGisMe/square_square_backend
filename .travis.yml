@@ -1,24 +1,22 @@
 language: elixir
 elixir:
-  - 1.0.5
+- 1.0.5
 otp_release:
-  - 18.0
+- 18.0
 addons:
   postgresql: '9.4'
 matrix:
   allow_failures:
-    - elixir: 1.0.5
+  - elixir: 1.0.5
 deploy:
   provider: heroku
-  app: square-square-backend
-  buildpack: https://github.com/HashNuke/heroku-buildpack-elixir.git
-  strategy: git-ssh
   api_key:
-    secure: SXzye22hZbI7lrU8stXXHlelUq/9N2Z/+2BVJ2Hwfm3VCJEgWCDUuijgoBE10VKfAXz1c2P6goyG433n9RlIkvYxSWJW0l9enPyPehd/uPMwP95FiRGjDoVPBjrkbBd+96JcMQdB63lC79OQitphZCyQOpDtOCgqdxzLIJfxYhcEC28RWG3g5lkOkJPHKC3JyUFAeKOBcwQMcRxm3XoikPyx89P/4YDzLXwzW32tTiqm3HqIetqfLC9yGOBirz34j063yFPlpUT6HY88JscY1M5vd15j3OiMLkfwGCENPsQv3Ot3XShY/fdWK0ACaDqFXmWkUFEmFsdOXNmwfXX0AxELra4n8hbGScedwUbCiizwbRwaXESYiMLjJtyW00vyt1ltjbiPPsNjDEQ1zILPpieR2130C680KlTUgezk8BTczg2qrHuXZ8Z2LEGz2aOaezimzt7N8pWjnNx4K/y/LtWQ7EVq/Tc3O/lJCsl7LJn6emauwxm2UkizAmG3ULIORcHZZ0HeES8ieoUl9CTXqR3Lr4xvyOTKdiwiMuGiqVhDPnHojRxhQND8SD1oECurves+9PFPsm/ZadWXOq1TZpjHxxrp2ZXTTKcVdDm/3AKytgx+NV3V5GZXFoLojWadZfXWOJ1r0ZteIsq2urR2v3wGYWWA8LIzAGb+ygXD0Z8=
+    secure: OPWqfphezUlHrLLuJq1rwysR7I35dTE09nDVZxssj2cYxKTgGTCEAdPMQJWbGaQgB0sDBKF/lggsRGj0UTs+GDL6Q1tSUSQuNpF8t7zGvG73/4YwikZ/lxao0Dtai+vLC7mPgpIrPa+CwjMYZ7GJ0d5nld3PeL39N8oLYdKUx19BExgEV8ackhkimLF+iEWfnvCi2EMaMIHWWtNEg1YQlMul1z30pc5p4dM95r2RFpGvrwhAPLXNG7ZG+xGC6XFN5zQM/zCNgnqG7JTGqJofiExXofPxMeUK/Kss78Far0aV9O4IWxmSy+Azk4tQgOdqxugkEovEEqtMZHSJn/rjY7WOnn0F+BVQOzUFqi2cXpF5pX+4NWIfoxy6W4Lf2iMnMrDgzpT+PNRzUExsSL4FQiCHf4+cMql7h+4ydJ+dvNSkTJERS4KNL5gvJhYuA2bfW14VU8m9xqayKEOkOwMDiGUjfi8C26v+xaSjJ3BDAIC4AaXLqetwAWLSO5HWXWPo6M1Ozw9EcQLImqYIgit45aZNdS1O4/dUS4nMZ1EjM2NWPEqbRne/Ld5lSPlHMgsttLcAzK5FqeSs/2y/aMxGvbzv4foHcYaujIarfrEG+ZBc4V54ZqVoAB1i3j/lN1/q/k8ehnfcoiJOoT3jc2ytV9DaCa4UTxzcnC2mb3dJsaE=
+  app: square-square-backend
   on:
-    branch: 'master'  
+    repo: JKGisMe/square_square_backend
 after_deploy:
-  - heroku run "mix ecto.migrate" -a square-square-backend
+- heroku run "mix ecto.migrate" -a square-square-backend
 cache:
   directories:
-    - deps
+  - deps

@@ -56,7 +56,11 @@ config :logger, level: :debug
 #
 config :square_square_backend, SquareSquareBackend.Repo,  
   adapter: Ecto.Adapters.Postgres,
-  url: System.get_env("DATABASE_URL")
+  username: System.get_env("DATABASE_USER"),
+  password: System.get_env("DATABASE_PASSWORD"),
+  database: System.get_env("DATABASE_NAME"),
+  hostname: System.get_env("DATABASE_HOST"),
+  pool_size: 10
 
 # Finally import the config/prod.secret.exs
 # which should be versioned separately.
