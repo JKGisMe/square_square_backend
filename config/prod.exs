@@ -14,7 +14,7 @@ use Mix.Config
 config :square_square_backend, SquareSquareBackend.Endpoint,
   http: [port: System.get_env("PORT")],
   url: [scheme: "https", host: "square-square-backend.herokuapp.com", port: 443],
-  force_ssl: [rewrite_on: [:x_forwarded_proto]],
+  force_ssl: [rewrite_on: [:x_forwarded_proto]]
 
 # Do not print debug messages in production
 config :logger, level: :info
