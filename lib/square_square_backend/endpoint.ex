@@ -1,6 +1,7 @@
 defmodule SquareSquareBackend.Endpoint do
   use Phoenix.Endpoint, otp_app: :square_square_backend
 
+  plug PlugCors, [origin: "localhost:4201"]
 
   socket "/socket", SquareSquareBackend.UserSocket
 
@@ -35,6 +36,7 @@ defmodule SquareSquareBackend.Endpoint do
     store: :cookie,
     key: "_square_square_backend_key",
     signing_salt: "yxQvbtgf"
+  
   plug PlugCors
-  plug :router, SquareSquareBackend.Router
+  plug SquareSquareBackend.Router
 end
