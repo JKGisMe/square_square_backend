@@ -35,9 +35,9 @@ defmodule SquareSquareBackend.SquareController do
     render conn, model: SquareSquareBackend.Repo.get(SquareSquareBackend.Square, id)
   end
 
-  def update(conn, %{"id" => id, "square" => square_params}) do
+  def update(conn, %{"data" => %{"attributes" => params}, "id" => id}) do
     square = Repo.get!(Square, id)
-    changeset = Square.changeset(square, square_params)
+    changeset = Square.changeset(square, params)
 
     case Repo.update(changeset) do
       {:ok, square} ->

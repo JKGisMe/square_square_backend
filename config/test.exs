@@ -16,7 +16,6 @@ config :phoenix, :stacktrace_depth, 20
 config :square_square_backend, SquareSquareBackend.Repo,
   adapter: Ecto.Adapters.Postgres,
   username: "postgres",
-  password: "postgres",
   database: "square_square_backend_test",
   hostname: "localhost",
   pool: Ecto.Adapters.SQL.Sandbox
