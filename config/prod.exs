@@ -56,7 +56,7 @@ config :logger, level: :debug
 #
 config :square_square_backend, SquareSquareBackend.Repo,  
   adapter: Ecto.Adapters.Postgres,
-  url: System.get_env("DATABASE_URL"),
+  url: System.get_env("DATABASE_URL")
 
 # Finally import the config/prod.secret.exs
 # which should be versioned separately.
