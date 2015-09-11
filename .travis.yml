@@ -8,8 +8,6 @@ addons:
 matrix:
   allow_failures:
     - elixir: 1.0.5
-before_script:
-  - MIX_ENV=prod mix do deps.get, deps.compile, ecto.create, ecto.migrate
 deploy:
   provider: heroku
   app: square-square-backend
