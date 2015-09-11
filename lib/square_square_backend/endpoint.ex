@@ -1,8 +1,6 @@
 defmodule SquareSquareBackend.Endpoint do
   use Phoenix.Endpoint, otp_app: :square_square_backend
 
-  plug PlugCors, [origin: "localhost:4201"]
-
   socket "/socket", SquareSquareBackend.UserSocket
 
   # Serve at "/" the static files from "priv/static" directory.
