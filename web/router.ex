@@ -11,7 +11,7 @@ defmodule SquareSquareBackend.Router do
 
   pipeline :api do
     plug :accepts, ["json", "json-api"]
-    plug PlugCors, [origins: ["*.square-square-frontend.divshot.io"]]
+    plug PlugCors, [origins: ["http://development.square-square-frontend.divshot.io"]]
     # plug JaSerializer.ContentTypeNegotiation
     SquareSquareBackend.DeserializePlug
   end
