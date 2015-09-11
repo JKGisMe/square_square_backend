@@ -9,13 +9,6 @@ matrix:
   allow_failures:
     - elixir: 1.0.5
 before_script:
-  - npm install -g brunch
-  - npm install
-  - brunch build --production
-  - mix phoenix.digest
-  - git config --global user.email "incarnadin@gmail.com"
-  - git config --global user.name "JKGisMe"
-  - git add priv && git commit -m "Travis and Heroku Build"
   - MIX_ENV=prod mix do deps.get, deps.compile, ecto.create, ecto.migrate
 deploy:
   provider: heroku
