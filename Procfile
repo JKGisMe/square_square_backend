@@ -1,1 +1,1 @@
-web: mix phoneix.server
+web: mix phoenix.server
