@@ -23,7 +23,8 @@ defmodule SquareSquareBackend.Mixfile do
   defp app_list(:dev), do: app_list
   defp app_list(_), do: app_list
   defp app_list, do: [:phoenix, :phoenix_html, :cowboy, :logger,
-                    :phoenix_ecto, :postgrex, :exometer]
+                    :phoenix_ecto, :postgrex, :exometer, :lager_logger, 
+                    :lager,  :parse_trans, :setup, :exometer_core]
 
   # Specifies which paths to compile per environment
   defp elixirc_paths(:test), do: ["lib", "web", "test/support"]
@@ -43,7 +44,10 @@ defmodule SquareSquareBackend.Mixfile do
      {:ja_serializer, "~> 0.3.1"},
      {:exometer_core, github: "PSPDFKit-labs/exometer_core", override: true},
      {:exometer, github: "PSPDFKit-labs/exometer"},
-     {:edown, github: "uwiger/edown", tag: "0.7", override: true}
+     {:edown, github: "uwiger/edown", tag: "0.7", override: true},
+     {:lager_logger, "~> 1.0"},
+     {:lager, "~> 2.1", override: true},
+     {:goldrush, "~> 0.1", override: true}
    ]
   end
 end
