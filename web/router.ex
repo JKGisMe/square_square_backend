@@ -1,3 +1,5 @@
+require Logger
+
 defmodule SquareSquareBackend.Router do
   use SquareSquareBackend.Web, :router
 
@@ -12,7 +14,8 @@ defmodule SquareSquareBackend.Router do
   pipeline :api do
     plug :accepts, ["json", "json-api"]
     # plug JaSerializer.ContentTypeNegotiation
-    plug PlugCors, [origins: [System.get_env("FRONTEND_URL")]]    
+    plug PlugCors, [origins: [System.get_env("FRONTEND_URL") || "localhost:4201"]] 
+    plug PlugExometer
     SquareSquareBackend.DeserializePlug
   end
 

@@ -17,9 +17,13 @@ defmodule SquareSquareBackend.Mixfile do
   # Type `mix help compile.app` for more information
   def application do
     [mod: {SquareSquareBackend, []},
-     applications: [:phoenix, :phoenix_html, :cowboy, :logger,
-                    :phoenix_ecto, :postgrex]]
+     applications: app_list(Mix.env)]
   end
+
+  defp app_list(:dev), do: app_list
+  defp app_list(_), do: app_list
+  defp app_list, do: [:phoenix, :phoenix_html, :cowboy, :logger,
+                    :phoenix_ecto, :postgrex, :exometer]
 
   # Specifies which paths to compile per environment
   defp elixirc_paths(:test), do: ["lib", "web", "test/support"]
@@ -36,7 +40,10 @@ defmodule SquareSquareBackend.Mixfile do
      {:phoenix_live_reload, "~> 1.0", only: :dev},
      {:cowboy, "~> 1.0"},
      {:plug_cors, "~> 0.7"},
-     {:ja_serializer, "~> 0.3.1"}
+     {:ja_serializer, "~> 0.3.1"},
+     {:exometer_core, github: "PSPDFKit-labs/exometer_core", override: true},
+     {:exometer, github: "PSPDFKit-labs/exometer"},
+     {:edown, github: "uwiger/edown", tag: "0.7", override: true}
    ]
   end
 end
